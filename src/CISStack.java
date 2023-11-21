@@ -2,6 +2,51 @@ import java.util.Arrays;
 
 public class CISStack {
 
+    private int[] stack;
+    private int size,pointer;
+
+    public CISStack(int sz) {
+        this.stack = new int[sz];
+        this.size = 0;
+        this.pointer=-1;
+    }
+    public void push(int val){
+        pointer++;
+        stack[pointer]=val;
+        size++;
+    }
+    public int pop(){
+        int val=stack[pointer];
+        pointer--;
+        size--;
+        return val;
+    }
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public String toString(){
+        String s="";
+        s+="CISStack{stack=[";
+        for(int i=0;i<stack.length;i++){
+            if(stack[i]==0){
+                s+="null";
+            }
+            else s+=Integer.toString(stack[i]);
+            if(i!=stack.length-1)s+=", ";
+        }
+        s+="], size=";
+        s+=Integer.toString(size);
+        s+=", pointer=";
+        s+=Integer.toString(pointer);
+        s+="}";
+        return s;
+    }
+
     // Array property.
 
     // Size property.
